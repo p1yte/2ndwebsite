@@ -1,22 +1,51 @@
-/* General body styling */
+/* =====================================
+   Global Body Styling & Background
+===================================== */
 body {
     font-family: 'Georgia', serif;
-    background-color: white;
-    color: black;
+    /* Black background blended with your space image (parallax effect) */
+    background: black url('space.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
     margin: 0;
     padding: 0;
+    /* Optional: Custom cursor (remove if not needed) */
+    cursor: url('custom-cursor.png'), auto;
 }
 
-/* Profile Card */
+/* Fade-In Animation Class */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================
+   Profile Card (LinkedIn‑Style with Hover Lift)
+===================================== */
 .profile-card {
     display: flex;
     align-items: center;
-    background-color: white;
+    background-color: black;
     padding: 30px;
     max-width: 800px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     margin: 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 6px 12px rgba(255, 255, 255, 0.2);
 }
 
 .profile-pic {
@@ -30,23 +59,27 @@ body {
 .profile-info h1 {
     font-size: 28px;
     margin-bottom: 10px;
+    color: whitesmoke;
 }
 
 .profile-info p {
     font-size: 16px;
-    color: black;
+    color: whitesmoke;
 }
 
 .profile-info p a {
-    color: #007bff;
+    color: whitesmoke;
     text-decoration: none;
 }
 
 .profile-info p a:hover {
     text-decoration: underline;
+    color: lightcyan;
 }
 
-/* Navigation Styling */
+/* =====================================
+   Navigation Styling with Animated Underline
+===================================== */
 nav ul {
     list-style: none;
     padding: 0;
@@ -60,16 +93,36 @@ nav ul li {
 }
 
 nav ul li a {
+    position: relative;
     text-decoration: none;
-    color: black;
+    color: white;
     font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+/* Animated Underline for Navigation Links */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    color: lightcyan;
 }
 
-/* Section Styling */
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* =====================================
+   Section Styling
+===================================== */
 section {
     padding: 30px 20px;
     max-width: 800px;
@@ -78,13 +131,13 @@ section {
 
 h2 {
     font-size: 26px;
-    color: black;
+    color: white;
     margin-bottom: 20px;
 }
 
 p {
     font-size: 16px;
-    color: black;
+    color: white;
 }
 
 .edu-section {
@@ -106,21 +159,22 @@ p {
 
 .post-preview {
     padding: 20px;
-    border-bottom: 1px solid #ccc; /* Add subtle divider */
+    border-bottom: 1px solid white;
 }
 
 .post-preview h3 {
     font-size: 22px;
     margin-bottom: 10px;
+    color: white;
 }
 
 .post-preview p {
     font-size: 16px;
-    color: #666;
+    color: white;
 }
 
 .read-more {
-    color: #007bff;
+    color: white;
     text-decoration: none;
 }
 
@@ -128,7 +182,9 @@ p {
     text-decoration: underline;
 }
 
-/* Reading List Section */
+/* =====================================
+   Reading List Section
+===================================== */
 .book-list {
     display: flex;
     flex-direction: column;
@@ -156,14 +212,17 @@ p {
 .book-info h3 {
     font-size: 22px;
     margin-bottom: 10px;
+    color: white;
 }
 
 .book-info p {
     font-size: 16px;
-    color: #666;
+    color: white;
 }
 
-/* General styles for both channels and podcasts */
+/* =====================================
+   Channel & Podcast Items
+===================================== */
 .channel-item, .podcast-item {
     display: flex;
     align-items: center;
@@ -181,15 +240,16 @@ p {
 .channel-info h3, .podcast-info h3 {
     font-size: 18px;
     margin-bottom: 5px;
+    color: white;
 }
 
 .channel-info p, .podcast-info p {
     font-size: 16px;
-    color: #666;
+    color: white;
 }
 
 .channel-info a, .podcast-info a {
-    color: #007bff;
+    color: white;
     text-decoration: none;
 }
 
@@ -197,6 +257,9 @@ p {
     text-decoration: underline;
 }
 
+/* =====================================
+   Projects
+===================================== */
 .project-item {
     display: flex;
     align-items: center;
@@ -211,15 +274,15 @@ p {
 }
 
 .project-cover1 {
-    width: 300;
+    width: 300px;
     height: 200px;
     object-fit: cover;
     border-radius: 3px;
 }
 
 .project-cover2 {
-    width: 300;
-    height: 400;
+    width: 300px;
+    height: 400px;
     object-fit: cover;
     border-radius: 3px;
 }
